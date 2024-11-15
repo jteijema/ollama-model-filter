@@ -14,7 +14,7 @@ Model Size Filter is a web application that allows users to filter and explore m
 Pull and run the Docker container:
 ```
 docker pull ghcr.io/jteijema/ollama-model-size-filter:latest
-docker run -p -d 5000:5000 --name ollama-models-filter -e FLASK_RUN_HOST=0.0.0.0 -e FLASK_RUN_PORT=5000 ghcr.io/jteijema/ollama-model-size-filter:latest
+docker run -p 5000:5000 -d --name ollama-models-filter -e FLASK_RUN_HOST=0.0.0.0 -e FLASK_RUN_PORT=5000 ghcr.io/jteijema/ollama-model-size-filter:latest
 ```
 Visit the application in your browser at:
 
