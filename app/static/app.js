@@ -14,8 +14,10 @@ noUiSlider.create(slider, {
     step: 1
 });
 
+const API_BASE_URL = window.location.origin; 
+
 async function fetchModels(min, max) {
-    const response = await fetch(`http://127.0.0.1:5000/models?over=${min}&under=${max}`);
+    const response = await fetch(`${API_BASE_URL}/models?over=${min}&under=${max}`);
     if (!response.ok) {
         console.error('Failed to fetch models:', response.status, response.statusText);
         return;

@@ -2,10 +2,13 @@ import os
 import json
 import time
 from flask import Flask, request, jsonify, send_from_directory
+from flask_cors import CORS
 import requests
 from bs4 import BeautifulSoup
 
 app = Flask(__name__, static_folder='static')
+
+CORS(app)
 
 MODELS_URL = 'https://ollama.com/search'
 CACHE_FILE = 'models_cache.json'
