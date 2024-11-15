@@ -2,6 +2,8 @@
 
 Model Size Filter is a web application that allows users to filter and explore machine learning models by size. The models are scraped from [Ollama](https://ollama.com/) and include details such as available sizes and the last updated time. The app provides an interactive slider for refining results and links models to their respective detail pages.
 
+![image](https://github.com/user-attachments/assets/1d1abe9d-c665-4bbc-b0b4-833cf7605061)
+
 ## Features
 
 - Filter machine learning models by size (e.g., `1b`, `2b`).
