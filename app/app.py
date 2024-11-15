@@ -136,6 +136,14 @@ def get_models():
     return jsonify(models), 200
 
 
+@app.route('/favicon.ico')
+def favicon():
+    """
+    Serve the favicon from the static directory.
+    """
+    return send_from_directory(os.path.join(app.static_folder), 'favicon.ico', mimetype='image/vnd.microsoft.icon')
+
+
 @app.route('/')
 def index():
     """
