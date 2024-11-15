@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ollama Model Size Filter</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.0/nouislider.min.css">
+        <link rel="stylesheet" href="styles.css">
+        <meta name="description" content="Filter and explore Ollama's AI models by size. Use the interactive slider to find models that suit your needs.">
+        <meta name="keywords" content="AI models, Ollama, model size filter, interactive slider, machine learning models">
+        <meta name="author" content="Ollama">
+        <meta name="robots" content="index, follow">
+        <meta property="og:title" content="Ollama Model Size Filter">
+        <meta property="og:description" content="Filter and explore Ollama's AI models by size. Use the interactive slider to find models that suit your needs.">
+        <meta property="og:image" content="https://ollama.com/public/ollama.png">
+        <meta property="og:url" content="https://ollama.com/">
+        <meta property="og:type" content="website">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Ollama Model Size Filter">
+        <meta name="twitter:description" content="Filter and explore Ollama's AI models by size. Use the interactive slider to find models that suit your needs.">
+        <meta name="twitter:image" content="https://ollama.com/public/ollama.png">
+    </head>
+<body>
+    <div class="container">
+        <img src="https://ollama.com/public/ollama.png" alt="Ollama Logo" class="logo">
+        <h1>Ollama Model Size Filter</h1>
+        <div class="slider-container">
+            <div id="slider"></div>
+            <div class="slider-values">
+                <div>
+                    Min: <input type="number" id="minInput" value="0" min="0" max="406">b
+                </div>
+                <div>
+                    Max: <input type="number" id="maxInput" value="406" min="0" max="406">b
+                </div>
+            </div>
+        </div>
+        <div class="models" id="modelsContainer">
+            <!-- Filtered models will appear here -->
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.0/nouislider.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

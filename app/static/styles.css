@@ -1,0 +1,108 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+}
+
+.logo {
+    width: 4rem;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-family: ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+    margin-bottom: 1rem;
+    font-feature-settings: normal;
+    font-variation-settings: normal;
+    -moz-tab-size: 4;
+    tab-size: 4;
+    letter-spacing: -.025em;
+    font-weight: 500;
+}
+
+.slider-container {
+    margin: 20px 0;
+}
+
+#slider {
+    margin: 20px auto;
+    width: 100%;
+}
+
+.slider-values {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    font-size: 1rem;
+}
+
+.slider-values div {
+    display: flex;
+    align-items: center;
+}
+
+/* Modern inline editable number input */
+.slider-values input[type="number"] {
+    border: none;
+    background: none;
+    width: 3rem;
+    text-align: right;
+    font-size: 1rem;
+    font-family: inherit;
+    appearance: none;
+    -moz-appearance: textfield; /* Remove spinners in Firefox */
+}
+
+.slider-values input[type="number"]:focus {
+    outline: none;
+    border-bottom: 1px solid #ccc;
+}
+
+.slider-values input[type="number"]::-webkit-inner-spin-button,
+.slider-values input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none; /* Remove spinners in Chrome/Edge */
+}
+
+.models {
+    margin-top: 20px;
+}
+
+.model {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.model h3 a {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.model h3 a:hover {
+    text-decoration: underline;
+}
+
+.latest-update {
+    -webkit-text-size-adjust: 100%;
+    font-family: ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+    -moz-tab-size: 4;
+    tab-size: 4;
+    --tw-text-opacity: 1;
+    color: rgb(115 115 115/var(--tw-text-opacity));
+    font-size: 13px;
+  }
+
+.latest-update .update-icon {
+    width: 1rem;
+    height: 1rem;
+    stroke: #555;
+}
