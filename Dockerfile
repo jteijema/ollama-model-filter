@@ -13,5 +13,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Expose the application port
 EXPOSE 5000
 
+# Add Docker HEALTHCHECK
+HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
+  CMD curl -f http://localhost:5000/health || exit 1
+
 # Run the Flask app
 CMD ["python", "app/app.py"]

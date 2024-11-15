@@ -160,6 +160,14 @@ def serve_static_files(path):
     return send_from_directory(app.static_folder, path)
 
 
+@app.route('/health', methods=['GET'])
+def health_check():
+    """
+    Health check endpoint to verify the backend is alive and available.
+    """
+    return jsonify({"status": "healthy"}), 200
+
+
 if __name__ == '__main__':
     host = os.environ.get('FLASK_RUN_HOST', '0.0.0.0')
     port = int(os.environ.get('FLASK_RUN_PORT', 5000))
