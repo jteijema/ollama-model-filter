@@ -1,10 +1,12 @@
 import os
 import json
 import time
+import re
 from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 import requests
 from bs4 import BeautifulSoup
+from werkzeug.exceptions import BadRequest
 
 app = Flask(__name__, static_folder='static')
 
@@ -13,6 +15,7 @@ CORS(app)
 MODELS_URL = 'https://ollama.com/search'
 CACHE_FILE = 'models_cache.json'
 CACHE_EXPIRY = 86400  # 24 hours in seconds
+VALID_SIZE_PATTERN = re.compile(r'^\d+(\.\d+)?[mbMB]?$')
 
 
 def scrape_models():
@@ -68,6 +71,12 @@ def save_to_cache(models):
         json.dump({'models': models, 'timestamp': time.time()}, file)
 
 
+def validate_size_input(value):
+    """ Validates that the size input follows the expected format, like '123m' or '4.56b'. """
+    if not value or not VALID_SIZE_PATTERN.match(value):
+        raise BadRequest(f"Invalid filter value: {value}")
+
+
 @app.route('/models', methods=['GET'])
 def get_models():
     """
@@ -75,6 +84,12 @@ def get_models():
     """
     under_filter = request.args.get('under')  # Get the 'under' size filter
     over_filter = request.args.get('over')  # Get the 'over' size filter
+
+    # Validate filters
+    if under_filter:
+        validate_size_input(under_filter)
+    if over_filter:
+        validate_size_input(over_filter)
 
     # Load cached models or scrape if the cache is expired
     models = load_cached_models()
@@ -125,10 +140,9 @@ def get_models():
 
             if filtered_sizes:
                 filtered_models.append({
-                    'name': model['name'], 
+                    'name': model['name'],
                     'sizes': filtered_sizes,
-                    'latest_update': model['latest_update']
-                    })
+                    'latest_update': model['latest_update']})
 
         return jsonify(filtered_models), 200
 

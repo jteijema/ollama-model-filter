@@ -10,6 +10,9 @@ COPY . .
 # Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Install Gunicorn if not in requirements.txt
+RUN pip install --no-cache-dir gunicorn
+
 # Expose the application port
 EXPOSE 5000
 
@@ -17,5 +20,6 @@ EXPOSE 5000
 HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
   CMD curl -f http://localhost:5000/health || exit 1
 
-# Run the Flask app
-CMD ["python", "app/app.py"]
+# Run the Flask app using Gunicorn
+CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:5000", "app:app"]
+
