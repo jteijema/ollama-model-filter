@@ -1,6 +1,9 @@
 # Use an official Python runtime as the base image
 FROM python:3.10-slim
 
+# Install curl and other dependencies
+RUN apt-get update && apt-get install -y curl
+
 # Set the working directory
 WORKDIR /app
 
